@@ -8,8 +8,7 @@ import Alert from './components/Alert';
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 
@@ -32,7 +31,7 @@ function App() {
   const toggle= ()=> {
     if(_mode === 'light'){
       setMode('dark');
-      document.body.style.backgroundColor = '#728495';
+      document.body.style.backgroundColor = '#7a8289';
       showAlert("Dark mode has been enabled" , "success");
     }
     else{
@@ -50,7 +49,7 @@ function App() {
     <Alert alert={alert}/>
     <div className="container my-3">
       <Routes>
-            <Route path="/about" element={<About />}/>
+            <Route path="/about" element={<About mode={_mode} />}/>
             <Route path="/" element={<TextForm heading='Enter the text to analyze below' mode={_mode} showAlert = {showAlert}/>}/>
       </Routes>
     </div>

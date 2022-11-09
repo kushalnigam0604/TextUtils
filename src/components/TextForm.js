@@ -35,16 +35,16 @@ export default function TextForm(props) {
     <div className="container">
     <h2>{props.heading}</h2>
       <div className="mb-3">
-        <textarea className="form-control" placeholder="Enter Text..." style={{backgroundColor: props.mode ==='dark'?'#ccd4db':'white'}} value={text} onChange={handleOnChange} id="myBox" rows="10"></textarea>
+        <textarea className="form-control" placeholder="Enter Text..." style={{backgroundColor: props.mode ==='dark'?'#aaacb0':'white'}} value={text} onChange={handleOnChange} id="myBox" rows="10"></textarea>
       </div>
-      <button className="btn btn-primary mx-1" onClick={handleUpperClick}>Convert to Uppercase</button>
-      <button className="btn btn-primary mx-1" onClick={handleLowerClick}>Convert to Lowercase</button>
-      <button className="btn btn-primary mx-1" onClick={handleClearClick}>Clear Text Space</button>
-      <button className="btn btn-primary mx-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleUpperClick}>Convert to Uppercase</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleLowerClick}>Convert to Lowercase</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleClearClick}>Clear Text Space</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
     </div>
     <div className="container my-2">
       <h2>Your text summary</h2>
-      <p>{text.split(" ").length} words and {text.length} characters.</p>
+      <p>{text.split(/\s+/).filter((element) => {return element.length!==0}).length} words and {text.length} characters.</p>
       <h2>Preview</h2>
       <p style={{color: props.mode==='dark'?'white':'black'}}>{text}</p>
     </div>
