@@ -14,7 +14,7 @@ import {
 
 function App() {
 
-  let [_mode , setMode] = useState('light');
+  const [_mode , setMode] = useState('light');
   const [alert , setAlert] = useState(null);
 
   const showAlert = (message , type)=> {
